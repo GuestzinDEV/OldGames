@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Studio Games - Arcade</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div id="disclaimer-screen" class="overlay-screen active">
+        <div class="glass-card central-card">
+            <h2>Notice</h2>
+            <p id="disclaimer-text">This website is a gaming site that contains games from third-party developers or some browser games created by Old Studio Games. The target audience of the site is children and teenagers. This website complies with key security regulations such as the Brazilian Digital Statute for Children and Adolescents (ECA Digital) and COPPA (Children's Online Privacy Protection Act), Because this site does not contain loot boxes, online gambling, and does not have an open chat directly on the website.</p>
+            <button id="btn-accept-disclaimer" class="btn-futuristic">Continue</button>
+        </div>
+    </div>
+
+    <div id="nickname-screen" class="overlay-screen">
+        <div class="glass-card central-card">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="site-logo">
+            <p id="nickname-warning">Choose your name (it is recommended that you do not use real names or names that contain personal information).</p>
+            <div class="input-group">
+                <input type="text" id="nickname-input" placeholder="Your Nickname..." maxlength="15" autocomplete="off">
+            </div>
+            <button id="btn-set-nickname" class="btn-futuristic disabled" disabled>Set Nickname</button>
+        </div>
+    </div>
+
+    <div id="main-interface" class="hidden">
+        
+        <header class="top-bar glass-card">
+            <div class="user-info">
+                <span id="display-nickname" class="highlight-text">Player</span>
+                <span id="playtime-counter" class="time-badge">00d 00h 00m 00s</span>
+            </div>
+            <div class="lang-selector">
+                <select id="lang-select">
+                    <option value="EN" selected>EN</option>
+                    <option value="PT">PT</option>
+                    <option value="ES">ES</option>
+                    <option value="RU">RU</option>
+                </select>
+            </div>
+        </header>
+
+        <section class="stats-container glass-card">
+            <span id="stat-visits">Website visits: 0</span>
+            <span class="separator">|</span>
+            <span id="stat-online">People online now: 1</span>
+        </section>
+
+        <main class="games-section">
+            <h2 id="title-third-party">Main third-party games:</h2>
+            <div class="games-grid">
+                
+                <div class="game-card glass-card" onclick="openGame('https://eaglercraft.com/play?version=1.8.8-wasm')">
+                    <img src="{{ url_for('static', filename='images/ec.png') }}" alt="Eaglecraft">
+                    <h3>Eaglecraft</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/super-mario-world')">
+                    <img src="{{ url_for('static', filename='images/smw.png') }}" alt="Super Mario World">
+                    <h3>Super Mario World</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://www.newgrounds.com/portal/view/457209')">
+                    <img src="{{ url_for('static', filename='images/st1.png') }}" alt="Stickman Breaking the Bank">
+                    <h3>Stickman Breaking the Bank</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://www.newgrounds.com/portal/view/533001')">
+                    <img src="{{ url_for('static', filename='images/st2.png') }}" alt="Stickman Escape The Prison">
+                    <h3>Stickman Escape The Prison</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://www.newgrounds.com/portal/view/574241')">
+                    <img src="{{ url_for('static', filename='images/st3.png') }}" alt="Stickman Stealing The Diamond">
+                    <h3>Stickman Stealing The Diamond</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://sneslive.com/the-legend-of-zelda-a-link-to-the-past/')">
+                    <img src="{{ url_for('static', filename='images/tlz.png') }}" alt="Zelda A Link to the Past">
+                    <h3>The Legend of Zelda</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://www.fnfgo.com/vs-garcello/')">
+                    <img src="{{ url_for('static', filename='images/fnf1.png') }}" alt="FNF vs Garcello">
+                    <h3>FNF vs Garcello</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://www.fnfgo.com/fnf-silly-billy/')">
+                    <img src="{{ url_for('static', filename='images/fnf2.png') }}" alt="FNF Silly Billy">
+                    <h3>FNF Silly Billy</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://www.geo-fs.com/geofs.php?v=3.9')">
+                    <img src="{{ url_for('static', filename='images/gfs.png') }}" alt="GeoFS Flight Simulator">
+                    <h3>GeoFS Simulator</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/super-mario-64')">
+                    <img src="{{ url_for('static', filename='images/sm64.png') }}" alt="Super Mario 64">
+                    <h3>Super Mario 64</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/super-mario-bros-3')">
+                    <img src="{{ url_for('static', filename='images/smbros3.png') }}" alt="Super Mario Bros 3">
+                    <h3>Super Mario Bros 3</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/mario-kart-64')">
+                    <img src="{{ url_for('static', filename='images/smk64.png') }}" alt="Super Mario Kart 64">
+                    <h3>Super Mario Kart 64</h3>
+                </div>
+
+            </div>
+        </main>
+
+        <section class="games-section">
+            <h2 id="title-internal">Top games from Old Studio Web:</h2>
+            <p id="coming-soon" class="coming-soon-text">Coming Soon...</p>
+        </section>
+
+        <footer class="site-footer glass-card">
+            <div class="credits-grid">
+                <div>
+                    <h4 id="cred-exec">Executive Developer:</h4>
+                    <p>Guester_DEV</p>
+                </div>
+                <div>
+                    <h4 id="cred-creative">Creative Developers:</h4>
+                    <p>Mrcssf_2009</p>
+                    <p>Mily</p>
+                </div>
+            </div>
+            <div class="discord-section">
+                <a href="https://discord.gg/5zfXaw2QUs" target="_blank" class="discord-btn">Join our Discord</a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="game-container-modal" class="hidden">
+        <div class="game-header">
+            <button id="btn-close-game" onclick="closeGame()">✖ Close</button>
+            <button id="btn-fullscreen-game" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+        </div>
+        <iframe id="game-iframe" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
 
