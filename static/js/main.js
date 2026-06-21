@@ -1,4 +1,4 @@
-// DICIONÁRIO COMPLETO DE IDIOMAS (Tradução Estática Integrada)
+// DICIONÁRIO COMPLETO DE IDIOMAS (Com a nova categoria inclusa)
 const translations = {
     EN: {
         disclaimer: "This website is a gaming site that contains games from third-party developers or some browser games created by Old Studio Games. The target audience of the site is children and teenagers. This website complies with key security regulations such as the Brazilian Digital Statute for Children and Adolescents (ECA Digital) and COPPA (Children's Online Privacy Protection Act), Because this site does not contain loot boxes, online gambling, and does not have an open chat directly on the website.",
@@ -8,6 +8,7 @@ const translations = {
         visits: "Website visits: ",
         online: "People online now: ",
         thirdParty: "Main third-party games:",
+        pcOnlyGames: "Third-party games (working only on PC):", // Nova linha EN
         internal: "Top games from Old Studio Web:",
         comingSoon: "Coming Soon...",
         execDev: "Executive Developer:",
@@ -22,6 +23,7 @@ const translations = {
         visits: "Visitas ao site: ",
         online: "Pessoas online agora: ",
         thirdParty: "Principais jogos de terceiros:",
+        pcOnlyGames: "Jogos de terceiros (funcionando apenas no PC):", // Nova linha PT
         internal: "Melhores jogos da Old Studio Web:",
         comingSoon: "Em breve...",
         execDev: "Desenvolvedor Executivo:",
@@ -36,6 +38,7 @@ const translations = {
         visits: "Visitas al sitio web: ",
         online: "Personas en línea ahora: ",
         thirdParty: "Principais juegos de terceros:",
+        pcOnlyGames: "Juegos de terceros (funcionando solo en PC):", // Nova linha ES
         internal: "Mejores juegos de Old Studio Web:",
         comingSoon: "Próximamente...",
         execDev: "Desarrollador Ejecutivo:",
@@ -50,6 +53,7 @@ const translations = {
         visits: "Визитов на сайт: ",
         online: "Людей онлайн: ",
         thirdParty: "Основные сторонние игры:",
+        pcOnlyGames: "Сторонние игры (работают только на ПК):", // Nova linha RU
         internal: "Лучшие игры от Old Studio Web:",
         comingSoon: "Скоро...",
         execDev: "Исполнительный разработчик:",
@@ -130,6 +134,7 @@ langSelect.addEventListener('change', (e) => {
     applyTranslations(currentLang);
 });
 
+// FUNÇÃO PARA APLICAR AS TRADUÇÕES NA TELA (Atualizada)
 function applyTranslations(lang) {
     const t = translations[lang];
     document.getElementById('disclaimer-text').innerText = t.disclaimer;
@@ -137,8 +142,10 @@ function applyTranslations(lang) {
     document.getElementById('nickname-warning').innerText = t.nickWarning;
     document.getElementById('btn-set-nickname').innerText = t.setNickBtn;
     document.getElementById('title-third-party').innerText = t.thirdParty;
+    document.getElementById('title-pc-only').innerText = t.pcOnlyGames; // Aplica a tradução no novo título
     document.getElementById('title-internal').innerText = t.internal;
     document.getElementById('coming-soon').innerText = t.comingSoon;
+    document.getElementById('grid-exec') ? document.getElementById('grid-exec').innerText = t.execDev : null; 
     document.getElementById('cred-exec').innerText = t.execDev;
     document.getElementById('cred-creative').innerText = t.creativeDev;
     document.querySelector('.discord-btn').innerText = t.discordBtn;
