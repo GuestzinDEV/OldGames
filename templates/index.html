@@ -84,14 +84,60 @@
                     <h3>The Legend of Zelda</h3>
                 </div>
 
-                <div class="game-card glass-card" onclick="openGame('https://www.fnfgo.com/vs-garcello/')">
-                    <img src="{{ url_for('static', filename='images/fnf1.png') }}" alt="FNF vs Garcello">
-                    <h3>FNF vs Garcello</h3>
+                <div class="game-card glass-card" onclick="openGame('https://www.geo-fs.com/geofs.php?v=3.9')">
+                    <img src="{{ url_for('static', filename='images/gfs.png') }}" alt="GeoFS Flight Simulator">
+                    <h3>GeoFS Simulator</h3>
                 </div>
 
-                <div class="game-card glass-card" onclick="openGame('https://www.fnfgo.com/fnf-silly-billy/')">
-                    <img src="{{ url_for('static', filename='images/fnf2.png') }}" alt="FNF Silly Billy">
-                    <h3>FNF Silly Billy</h3>
+                <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/super-mario-64')">
+                    <img src="{{ url_for('static', filename='images/sm64.png') }}" alt="Super Mario 64">
+                    <h3>Super Mario 64</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/super-mario-bros-3')">
+                    <img src="{{ url_for('static', filename='images/smbros3.png') }}" alt="Super Mario Bros 3">
+                    <h3>Super Mario Bros 3</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/mario-kart-64')">
+                    <img src="{{ url_for('static', filename='images/smk64.png') }}" alt="Super Mario Kart 64">
+                    <h3>Super Mario Kart 64</h3>
+                </div>
+
+            </div>
+        </main>
+        <main class="games-section">
+            <h2 id="title-third-party">Main third-party games:</h2>
+            <div class="games-grid">
+                
+                <div class="game-card glass-card" onclick="openGame('https://eaglercraft.com/play?version=1.8.8-wasm')">
+                    <img src="{{ url_for('static', filename='images/ec.png') }}" alt="Eaglecraft">
+                    <h3>Eaglecraft</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/super-mario-world')">
+                    <img src="{{ url_for('static', filename='images/smw.png') }}" alt="Super Mario World">
+                    <h3>Super Mario World</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://www.newgrounds.com/portal/view/457209')">
+                    <img src="{{ url_for('static', filename='images/st1.png') }}" alt="Stickman Breaking the Bank">
+                    <h3>Stickman Breaking the Bank</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://www.newgrounds.com/portal/view/533001')">
+                    <img src="{{ url_for('static', filename='images/st2.png') }}" alt="Stickman Escape The Prison">
+                    <h3>Stickman Escape The Prison</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://www.newgrounds.com/portal/view/574241')">
+                    <img src="{{ url_for('static', filename='images/st3.png') }}" alt="Stickman Stealing The Diamond">
+                    <h3>Stickman Stealing The Diamond</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://sneslive.com/the-legend-of-zelda-a-link-to-the-past/')">
+                    <img src="{{ url_for('static', filename='images/tlz.png') }}" alt="Zelda A Link to the Past">
+                    <h3>The Legend of Zelda</h3>
                 </div>
 
                 <div class="game-card glass-card" onclick="openGame('https://www.geo-fs.com/geofs.php?v=3.9')">
@@ -116,6 +162,23 @@
 
             </div>
         </main>
+
+        <section class="games-section">
+            <h2 id="title-pc-only">Third-party games (working only on PC)</h2>
+            <div class="games-grid">
+                
+                <div class="game-card glass-card" onclick="openGame('https://www.fnfgo.com/vs-garcello/')">
+                    <img src="{{ url_for('static', filename='images/fnf1.png') }}" alt="FNF vs Garcello">
+                    <h3>FNF vs Garcello</h3>
+                </div>
+
+                <div class="game-card glass-card" onclick="openGame('https://www.fnfgo.com/fnf-silly-billy/')">
+                    <img src="{{ url_for('static', filename='images/fnf2.png') }}" alt="FNF Silly Billy">
+                    <h3>FNF Silly Billy</h3>
+                </div>
+
+            </div>
+        </section>
 
         <section class="games-section">
             <h2 id="title-internal">Top games from Old Studio Web:</h2>
