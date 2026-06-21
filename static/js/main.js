@@ -169,10 +169,7 @@ function formatPlaytimeDisplay(totalSeconds) {
 
 // CONTROLADORES DE IFRAME (MODAL INTEGRADO DE JOGOS)
 function openGame(url) {
-    const modal = document.getElementById('game-container-modal');
-    const iframe = document.getElementById('game-iframe');
-    iframe.src = url;
-    modal.classList.remove('hidden');
+    window.open(url, '_blank');
 }
 
 function closeGame() {
