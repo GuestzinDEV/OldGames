@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Old Studio Games - Arcade</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -18,7 +18,7 @@
 
     <div id="nickname-screen" class="overlay-screen">
         <div class="glass-card central-card">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="site-logo">
+            <img src="images/logo.png" alt="Logo" class="site-logo">
             <p id="nickname-warning">Choose your name (it is recommended that you do not use real names or names that contain personal information).</p>
             <div class="input-group">
                 <input type="text" id="nickname-input" placeholder="Your Nickname..." maxlength="15" autocomplete="off">
@@ -55,52 +55,52 @@
             <div class="games-grid">
                 
                 <div class="game-card glass-card" onclick="openGame('https://eaglercraft.com/play?version=1.8.8-wasm')">
-                    <img src="{{ url_for('static', filename='images/ec.png') }}" alt="Eaglecraft">
+                    <img src="images/ec.png" alt="Eaglecraft">
                     <h3>Eaglecraft</h3>
                 </div>
 
                 <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/super-mario-world')">
-                    <img src="{{ url_for('static', filename='images/smw.png') }}" alt="Super Mario World">
+                    <img src="images/smw.png" alt="Super Mario World">
                     <h3>Super Mario World</h3>
                 </div>
 
                 <div class="game-card glass-card" onclick="openGame('https://www.newgrounds.com/portal/view/457209')">
-                    <img src="{{ url_for('static', filename='images/st1.png') }}" alt="Stickman Breaking the Bank">
+                    <img src="images/st1.png" alt="Stickman Breaking the Bank">
                     <h3>Stickman Breaking the Bank</h3>
                 </div>
 
                 <div class="game-card glass-card" onclick="openGame('https://www.newgrounds.com/portal/view/533001')">
-                    <img src="{{ url_for('static', filename='images/st2.png') }}" alt="Stickman Escape The Prison">
+                    <img src="images/st2.png" alt="Stickman Escape The Prison">
                     <h3>Stickman Escape The Prison</h3>
                 </div>
 
                 <div class="game-card glass-card" onclick="openGame('https://www.newgrounds.com/portal/view/574241')">
-                    <img src="{{ url_for('static', filename='images/st3.png') }}" alt="Stickman Stealing The Diamond">
+                    <img src="images/st3.png" alt="Stickman Stealing The Diamond">
                     <h3>Stickman Stealing The Diamond</h3>
                 </div>
 
                 <div class="game-card glass-card" onclick="openGame('https://sneslive.com/the-legend-of-zelda-a-link-to-the-past/')">
-                    <img src="{{ url_for('static', filename='images/tlz.png') }}" alt="Zelda A Link to the Past">
+                    <img src="images/tlz.png" alt="Zelda A Link to the Past">
                     <h3>The Legend of Zelda</h3>
                 </div>
 
                 <div class="game-card glass-card" onclick="openGame('https://www.geo-fs.com/geofs.php?v=3.9')">
-                    <img src="{{ url_for('static', filename='images/gfs.png') }}" alt="GeoFS Flight Simulator">
+                    <img src="images/gfs.png" alt="GeoFS Flight Simulator">
                     <h3>GeoFS Simulator</h3>
                 </div>
 
                 <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/super-mario-64')">
-                    <img src="{{ url_for('static', filename='images/sm64.png') }}" alt="Super Mario 64">
+                    <img src="images/sm64.png" alt="Super Mario 64">
                     <h3>Super Mario 64</h3>
                 </div>
 
                 <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/super-mario-bros-3')">
-                    <img src="{{ url_for('static', filename='images/smbros3.png') }}" alt="Super Mario Bros 3">
+                    <img src="images/smbros3.png" alt="Super Mario Bros 3">
                     <h3>Super Mario Bros 3</h3>
                 </div>
 
                 <div class="game-card glass-card" onclick="openGame('https://sites.google.com/view/emulatorjs/games/mario-kart-64')">
-                    <img src="{{ url_for('static', filename='images/smk64.png') }}" alt="Super Mario Kart 64">
+                    <img src="images/smk64.png" alt="Super Mario Kart 64">
                     <h3>Super Mario Kart 64</h3>
                 </div>
 
@@ -112,12 +112,12 @@
             <div class="games-grid">
                 
                 <div class="game-card glass-card" onclick="openGame('https://www.fnfgo.com/vs-garcello/')">
-                    <img src="{{ url_for('static', filename='images/fnf1.png') }}" alt="FNF vs Garcello">
+                    <img src="images/fnf1.png" alt="FNF vs Garcello">
                     <h3>FNF vs Garcello</h3>
                 </div>
 
                 <div class="game-card glass-card" onclick="openGame('https://www.fnfgo.com/fnf-silly-billy/')">
-                    <img src="{{ url_for('static', filename='images/fnf2.png') }}" alt="FNF Silly Billy">
+                    <img src="images/fnf2.png" alt="FNF Silly Billy">
                     <h3>FNF Silly Billy</h3>
                 </div>
 
@@ -155,8 +155,6 @@
         <iframe id="game-iframe" src="" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
-
-
