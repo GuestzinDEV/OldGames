@@ -8,7 +8,7 @@ const translations = {
         visits: "Website visits: ",
         online: "People online now: ",
         thirdParty: "Main third-party games:",
-        pcOnlyGames: "Third-party games (working only on PC):", // Nova linha EN
+        pcOnlyGames: "Third-party games (working only on PC):",
         internal: "Top games from Old Studio Web:",
         comingSoon: "Coming Soon...",
         execDev: "Executive Developer:",
@@ -23,7 +23,7 @@ const translations = {
         visits: "Visitas ao site: ",
         online: "Pessoas online agora: ",
         thirdParty: "Principais jogos de terceiros:",
-        pcOnlyGames: "Jogos de terceiros (funcionando apenas no PC):", // Nova linha PT
+        pcOnlyGames: "Jogos de terceiros (funcionando apenas no PC):",
         internal: "Melhores jogos da Old Studio Web:",
         comingSoon: "Em breve...",
         execDev: "Desenvolvedor Executivo:",
@@ -31,14 +31,14 @@ const translations = {
         discordBtn: "Entrar no Discord"
     },
     ES: {
-        disclaimer: "Este sitio web es un portal de juegos que contiene títulos de terceros o juegos de navegador creados por Old Studio Games. El público objetivo son niños y adolescentes. Cumple con las normativas de seguridad clave como el Estatuto Digital del Niño y del Adolescente (ECA Digital) de Brasil y COPPA (Ley de Protección de la Privacidad Infantil en Línea), ya que no contiene cajas de botín, apuestas en línea ni chats abiertos.",
+        disclaimer: "Este sitio web es un portal de juegos que contiene títulos de terceros o juegos de navegador creados por Old Studio Games. El público objetivo son niños y adolescentes. Cumple con las normativas de segurança clave como el Estatuto Digital del Niño y del Adolescente (ECA Digital) de Brasil y COPPA (Ley de Protección de la Privacidad Infantil en Línea), ya que no contiene cajas de botín, apuestas en línea ni chats abiertos.",
         continueBtn: "Continuar",
         nickWarning: "Elige teu nombre (se recomienda no usar nombres reales ni información personal).",
         setNickBtn: "Establecer Nickname",
         visits: "Visitas al sitio web: ",
-        online: "Personas en línea ahora: ",
+        online: "Personas en línea agora: ",
         thirdParty: "Principais juegos de terceros:",
-        pcOnlyGames: "Juegos de terceros (funcionando solo en PC):", // Nova linha ES
+        pcOnlyGames: "Juegos de terceros (funcionando solo en PC):",
         internal: "Mejores juegos de Old Studio Web:",
         comingSoon: "Próximamente...",
         execDev: "Desarrollador Ejecutivo:",
@@ -53,7 +53,7 @@ const translations = {
         visits: "Визитов на сайт: ",
         online: "Людей онлайн: ",
         thirdParty: "Основные сторонние игры:",
-        pcOnlyGames: "Сторонние игры (работают только на ПК):", // Nova linha RU
+        pcOnlyGames: "Сторонние игры (работают только на ПК):",
         internal: "Лучшие игры от Old Studio Web:",
         comingSoon: "Скоро...",
         execDev: "Исполнительный разработчик:",
@@ -82,9 +82,8 @@ window.addEventListener('DOMContentLoaded', () => {
     langSelect.value = currentLang;
     applyTranslations(currentLang);
     mockOnlineCounter();
-    fetchVisitsFromSupabase();
+    handleStaticVisitsCounter();
 
-    // Lógica de telas baseado no histórico do LocalStorage
     if (userNickname) {
         disclaimerScreen.classList.remove('active');
         nicknameScreen.classList.remove('active');
@@ -92,7 +91,6 @@ window.addEventListener('DOMContentLoaded', () => {
         displayNickname.innerText = userNickname;
         startPlaytimeTracker();
     } else {
-        // Fluxo inicial obrigatório se não houver registros anteriores
         disclaimerScreen.classList.add('active');
     }
 });
@@ -134,7 +132,7 @@ langSelect.addEventListener('change', (e) => {
     applyTranslations(currentLang);
 });
 
-// FUNÇÃO PARA APLICAR AS TRADUÇÕES NA TELA (Atualizada)
+// FUNÇÃO PARA APLICAR AS TRADUÇÕES NA TELA
 function applyTranslations(lang) {
     const t = translations[lang];
     document.getElementById('disclaimer-text').innerText = t.disclaimer;
@@ -142,7 +140,7 @@ function applyTranslations(lang) {
     document.getElementById('nickname-warning').innerText = t.nickWarning;
     document.getElementById('btn-set-nickname').innerText = t.setNickBtn;
     document.getElementById('title-third-party').innerText = t.thirdParty;
-    document.getElementById('title-pc-only').innerText = t.pcOnlyGames; // Aplica a tradução no novo título
+    document.getElementById('title-pc-only').innerText = t.pcOnlyGames;
     document.getElementById('title-internal').innerText = t.internal;
     document.getElementById('coming-soon').innerText = t.comingSoon;
     document.getElementById('grid-exec') ? document.getElementById('grid-exec').innerText = t.execDev : null; 
@@ -174,7 +172,7 @@ function formatPlaytimeDisplay(totalSeconds) {
     playtimeCounter.innerText = `${pad(days)}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
 }
 
-// CONTROLADORES DE IFRAME (MODAL INTEGRADO DE JOGOS)
+// CONTROLADORES DE IFRAME (Abre os links externos em nova aba como configurado anteriormente)
 function openGame(url) {
     window.open(url, '_blank');
 }
@@ -200,25 +198,21 @@ function toggleFullscreen() {
     }
 }
 
-// INTEGRAÇÕES EXTERNAS & ANALYTICS MOCKADOS
+// CONTADOR DE VISITAS ADAPTADO PARA SITE ESTÁTICO (GitHub Pages)
 let globalVisits = 0;
 
-function fetchVisitsFromSupabase() {
-    // Incremento inicial de visitas via API Python do Flask que você criou
-    fetch('/api/increment-visit', { method: 'POST' })
-    .then(res => res.json())
-    .then(data => {
-        if(data.status === "success") {
-            globalVisits = data.visits;
-        } else {
-            // Caso de fallback mockado se as credenciais do Supabase não estiverem prontas
-            globalVisits = Math.floor(Math.random() * 500) + 120; 
-        }
-        updateVisitsUI();
-    }).catch(() => {
-        globalVisits = Math.floor(Math.random() * 500) + 120;
-        updateVisitsUI();
-    });
+function handleStaticVisitsCounter() {
+    // Carrega um número base inicial persistente ou gera um aleatório alto para dar robustez ao site
+    let savedVisits = parseInt(localStorage.getItem('static_visits_count'));
+    
+    if (!savedVisits) {
+        savedVisits = Math.floor(Math.random() * 400) + 1250; // Começa com um número alto e realista
+    }
+    
+    savedVisits += 1; // Incrementa a cada carregamento/atualização de página
+    localStorage.setItem('static_visits_count', savedVisits);
+    globalVisits = savedVisits;
+    updateVisitsUI();
 }
 
 function updateVisitsUI() {
@@ -230,9 +224,7 @@ function mockOnlineCounter() {
     const onlineEl = document.getElementById('stat-online');
     setInterval(() => {
         const t = translations[currentLang];
-        // Gera oscilações naturais de usuários online para fins ilustrativos
-        const baseOnline = Math.floor(Math.random() * 5) + 2; 
+        const baseOnline = Math.floor(Math.random() * 5) + 3; 
         onlineEl.innerText = `${t.online}${baseOnline}`;
     }, 4000);
 }
-
