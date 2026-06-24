@@ -197,34 +197,3 @@ function toggleFullscreen() {
         document.exitFullscreen();
     }
 }
-
-// CONTADOR DE VISITAS ADAPTADO PARA SITE ESTÁTICO (GitHub Pages)
-let globalVisits = 0;
-
-function handleStaticVisitsCounter() {
-    // Carrega um número base inicial persistente ou gera um aleatório alto para dar robustez ao site
-    let savedVisits = parseInt(localStorage.getItem('static_visits_count'));
-    
-    if (!savedVisits) {
-        savedVisits = Math.floor(Math.random() * 400) + 1250; // Começa com um número alto e realista
-    }
-    
-    savedVisits += 1; // Incrementa a cada carregamento/atualização de página
-    localStorage.setItem('static_visits_count', savedVisits);
-    globalVisits = savedVisits;
-    updateVisitsUI();
-}
-
-function updateVisitsUI() {
-    const t = translations[currentLang];
-    document.getElementById('stat-visits').innerText = `${t.visits}${globalVisits}`;
-}
-
-function mockOnlineCounter() {
-    const onlineEl = document.getElementById('stat-online');
-    setInterval(() => {
-        const t = translations[currentLang];
-        const baseOnline = Math.floor(Math.random() * 5) + 3; 
-        onlineEl.innerText = `${t.online}${baseOnline}`;
-    }, 4000);
-}
